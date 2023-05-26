@@ -13,18 +13,22 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class OrderService {
 
-    private final OrderRepository orderRepository;
-    private final OrderMapper orderMapper;
+    private final OrderRepository repository;
+    private final OrderMapper mapper;
 
     @Transactional
-    public void newOrder(OrderDto requestDto) {
-        orderRepository.save(orderMapper.toEntity(requestDto));
+    public void newOrder(OrderDto dto) {
+        repository.save(mapper.toEntity(dto));
     }
 
     public List<OrderDto> getOrders() {
-        return orderRepository.findAll()
+        return repository.findAll()
             .stream()
-            .map(orderMapper::toDto)
+            .map(mapper::toDto)
             .toList();
+    }
+
+    public void cancelOrder(OrderDto dto) {
+        repository.delete(mapper.toEntity(dto));
     }
 }

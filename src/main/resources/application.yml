@@ -16,8 +16,8 @@ spring:
     openfeign:
       client:
         config:
-          order:
-            url: "order:8081"
+          stock:
+            url: "stock:8081"
             logger-level: FULL
 management:
   endpoints:

@@ -2,6 +2,8 @@ package com.k1m743hyun.orderservice.domain.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
@@ -12,19 +14,14 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "tbl_order_item")
+@Table(name = "tbl_order")
 @Entity
-public class OrderItem {
+public class Order {
 
     @Id
-    private Long orderItemNum;
-
-    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderNum;
 
     @Column
-    private Long itemNum;
-
-    @Column
-    private int itemCount;
+    private int memberNum;
 }

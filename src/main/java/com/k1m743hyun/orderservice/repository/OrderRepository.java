@@ -1,8 +1,8 @@
 package com.k1m743hyun.orderservice.repository;
 
-import com.k1m743hyun.orderservice.domain.entity.OrderItem;
+import com.k1m743hyun.orderservice.domain.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderRepository extends JpaRepository<OrderItem, Long> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 
 }
