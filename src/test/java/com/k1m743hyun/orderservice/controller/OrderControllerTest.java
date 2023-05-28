@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OrderControllerTest {
 
     @Test
-    @DisplayName("")
+    @DisplayName("createOrder 테스트")
     void createOrder() {
 
         // given
@@ -19,7 +19,7 @@ class OrderControllerTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getOrder 테스트")
     void getOrder() {
 
         // given
@@ -30,7 +30,7 @@ class OrderControllerTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getOrders 테스트")
     void getOrders() {
 
         // given
@@ -41,7 +41,7 @@ class OrderControllerTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("cancelOrder 테스트")
     void cancelOrder() {
 
         // given

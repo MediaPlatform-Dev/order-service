@@ -24,7 +24,7 @@ class OrderServiceTest {
     OrderMapper mapper;
 
     @Test
-    @DisplayName("")
+    @DisplayName("createOrder 테스트")
     void createOrder() {
 
         // given
@@ -35,7 +35,7 @@ class OrderServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getOrder 테스트")
     void getOrder() {
 
         // given
@@ -46,7 +46,7 @@ class OrderServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("getOrders 테스트")
     void getOrders() {
 
         // given
@@ -57,7 +57,7 @@ class OrderServiceTest {
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName("cancelOrder 테스트")
     void cancelOrder() {
 
         // given
