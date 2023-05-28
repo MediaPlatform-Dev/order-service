@@ -22,8 +22,13 @@ public class OrderController {
     private final OrderService service;
 
     @PostMapping
-    public void create(@RequestBody OrderDto requestDto) {
-        service.newOrder(requestDto);
+    public void createOrder(@RequestBody OrderDto requestDto) {
+        service.createOrder(requestDto);
+    }
+
+    @GetMapping("/{orderNum}")
+    public OrderDto getOrder(@PathVariable Long orderNum) {
+        return service.getOrder(orderNum);
     }
 
     @GetMapping
@@ -32,7 +37,7 @@ public class OrderController {
     }
 
     @DeleteMapping
-    public void cancel(@RequestBody OrderDto requestDto) {
+    public void cancelOrder(@RequestBody OrderDto requestDto) {
         service.cancelOrder(requestDto);
     }
 }

@@ -1,6 +1,7 @@
 package com.k1m743hyun.orderservice.service;
 
 import com.k1m743hyun.orderservice.domain.dto.OrderDto;
+import com.k1m743hyun.orderservice.domain.entity.Order;
 import com.k1m743hyun.orderservice.domain.mapper.OrderMapper;
 import com.k1m743hyun.orderservice.repository.OrderRepository;
 import java.util.List;
@@ -17,8 +18,15 @@ public class OrderService {
     private final OrderMapper mapper;
 
     @Transactional
-    public void newOrder(OrderDto dto) {
+    public void createOrder(OrderDto dto) {
         repository.save(mapper.toEntity(dto));
+    }
+
+    public OrderDto getOrder(Long id) {
+
+        Order entity = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Couldn't find id: " + id));
+        return mapper.toDto(entity);
     }
 
     public List<OrderDto> getOrders() {
@@ -28,6 +36,7 @@ public class OrderService {
             .toList();
     }
 
+    @Transactional
     public void cancelOrder(OrderDto dto) {
         repository.delete(mapper.toEntity(dto));
     }
