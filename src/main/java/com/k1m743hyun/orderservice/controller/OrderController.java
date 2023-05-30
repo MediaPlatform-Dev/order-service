@@ -1,6 +1,7 @@
 package com.k1m743hyun.orderservice.controller;
 
 import com.k1m743hyun.orderservice.domain.dto.OrderDto;
+import com.k1m743hyun.orderservice.domain.dto.StockDto;
 import com.k1m743hyun.orderservice.service.OrderService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -39,5 +40,10 @@ public class OrderController {
     @DeleteMapping
     public void cancelOrder(@RequestBody OrderDto requestDto) {
         service.cancelOrder(requestDto);
+    }
+
+    @GetMapping("/stocks")
+    public List<StockDto> getItems() {
+        return service.getItems();
     }
 }
