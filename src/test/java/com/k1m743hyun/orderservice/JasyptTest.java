@@ -1,7 +1,6 @@
 package com.k1m743hyun.orderservice;
 
 import com.k1m743hyun.orderservice.config.JasyptConfig;
-import org.assertj.core.api.Assertions;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
