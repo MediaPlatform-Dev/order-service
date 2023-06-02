@@ -1,19 +1,21 @@
 version: "3"
 services:
   database:
-    image: mysql:8.0.33
-    container_name: order_service_db
+    image: mysql
+    container_name: order_db
     environment:
-      - MYSQL_DATABASE=order_service_db
+      - MYSQL_DATABASE=order_db
       - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=order
+      - MYSQL_PASSWORD=order
       - TZ='Asia/Seoul'
     ports:
       - 3306:3306
     volumes:
-      - ./db/data:/var/lib/mysql
+      - ./db/order/data:/var/lib/mysql
     networks:
-      - order_service_network
+      - order_network
   webapp:
     build:
       context: .
@@ -21,15 +23,17 @@ services:
     restart: always
     depends_on:
       - database
+    links:
+      - database
     ports:
-      - 8081:8081
+      - 8080:8080
     container_name: order_service
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/order_service_db
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/order_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     networks:
-      - order_service_network
+      - order_network
 #  redis:
 #    image: redis:alpine
 #    command: redis-server --port 6379
@@ -42,4 +46,4 @@ services:
 #      - 6379:6379
 
 networks:
-  order_service_network:
+  order_network:

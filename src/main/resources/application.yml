@@ -25,14 +25,18 @@ logging:
 spring:
   application:
     name: "order"
+  sql:
+    init:
+      mode: always
   datasource:
-    url: ENC(PqBmfh0el1tFGHRhbR/4SQX7QcwBQMMD0DI6n7nNbCcaxqsooIa5ql/dDcQzG23X8w7021xcNCv+vIym+ycN1w==)
-    username: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
-    password: ENC(pzqMcuLassmcpZDDr2F8GE9H+EM/cX9O)
+    url: ${ORDER_DB_URL}
+    username: ${ORDER_DB_USERNAME}
+    password: ${ORDER_DB_PASSWORD}
   jpa:
     show-sql: true
     hibernate:
       ddl-auto: none
+    defer-datasource-initialization: true
   cloud:
     openfeign:
       client:
